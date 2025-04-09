@@ -6,7 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 st.title('การทำนายโรคหัวใจด้วย KNN ❤️')
-#st.image("./img/Men.jpg")
+st.image("./img/Men.jpg")
 
 col1, col2 = st.columns(2)
 
