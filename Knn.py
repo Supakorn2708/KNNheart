@@ -1,25 +1,26 @@
 from sklearn.neighbors import KNeighborsClassifier
-import streamlit as st
+import streamlit as st 
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-st.title('การจำแนกข้อมูลด้วยเทคนิค Machine Learning')
-st.image("./img/Men.jpg")
+st.title('การทำนายโรคหัวใจด้วย KNN ')
+#st.image("./img/men.jpg")
+
 col1, col2 = st.columns(2)
 
 with col1:
-   st.header("หัวใจแข็งแรง")
+   st.header("โรงบาลบางแพ")
    st.image("./img/heart1.jpg")
 
 with col2:
-   st.header("เป็นโรคหัวใจ")
+   st.header("การทำนายโรคหัวใจ")
    st.image("./img/heart2.jpg")
 
 html_7 = """
 <div style="background-color:#c5f18a;padding:15px;border-radius:15px 15px 15px 15px;border-style:'solid';border-color:black">
-<center><h5>การทำนายโรคหัวใจ ❤️‍🩹</h5></center>
+<center><h5>การทำนายโรคหัวใจ</h5></center>
 </div>
 """
 st.markdown(html_7, unsafe_allow_html=True)
@@ -41,14 +42,14 @@ st.subheader("📌 เลือกฟีเจอร์เพื่อดูก�
 feature = st.selectbox("เลือกฟีเจอร์", dt.columns[:-1])
 
 # วาดกราฟ boxplot
-st.write(f"### ❤️‍🔥 Boxplot: {feature} แยกข้อมูลโรคหัวใจ")
+st.write(f"### 🎯 Boxplot: {feature} การทำนายโรคหัวใจ")
 fig, ax = plt.subplots()
 sns.boxplot(data=dt, x='HeartDisease', y=feature, ax=ax)
 st.pyplot(fig)
 
 # วาด pairplot
 if st.checkbox("แสดง Pairplot (ใช้เวลาประมวลผลเล็กน้อย)"):
-    st.write("### 🐇 Pairplot: การกระจายของข้อมูลทั้งหมด")
+    st.write("### 🌺 Pairplot: การกระจายของข้อมูลทั้งหมด")
     fig2 = sns.pairplot(dt, hue='HeartDisease')
     st.pyplot(fig2)
 
@@ -72,12 +73,11 @@ a9 = st.number_input("กรุณาเลือกข้อมูล a9")
 a10 = st.number_input("กรุณาเลือกข้อมูล a10")
 a11 = st.number_input("กรุณาเลือกข้อมูล a11")
 
-
 if st.button("ทำนายผล"):
     #st.write("ทำนาย")
-   #dt = pd.read_csv("./data/Heart3.csv") 
-   X = dt.drop('variety', axis=1)
-   y = dt.variety   
+   #dt = pd.read_csv("./data/iris-3.csv") 
+   X = dt.drop('HeartDisease', axis=1)
+   y = dt.HeartDisease   
 
    Knn_model = KNeighborsClassifier(n_neighbors=3)
    Knn_model.fit(X, y)  
@@ -87,9 +87,9 @@ if st.button("ทำนายผล"):
    
    out=Knn_model.predict(x_input)
 
-   if out[0] == 'ดี':
+   if out[0] == 1:
     st.image("./img/heart1.jpg")
-   elif out[0] == 'เป็น':       
+   else:
     st.image("./img/heart2.jpg")
 else:
     st.write("ไม่ทำนาย")
