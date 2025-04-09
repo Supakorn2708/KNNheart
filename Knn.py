@@ -5,7 +5,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-st.title('การทำนายโรคหัวใจด้วย KNN ')
+st.title('การทำนายโรคหัวใจด้วย KNN ❤️')
 #st.image("./img/men.jpg")
 
 col1, col2 = st.columns(2)
@@ -42,14 +42,14 @@ st.subheader("📌 เลือกฟีเจอร์เพื่อดูก�
 feature = st.selectbox("เลือกฟีเจอร์", dt.columns[:-1])
 
 # วาดกราฟ boxplot
-st.write(f"### 🎯 Boxplot: {feature} การทำนายโรคหัวใจ")
+st.write(f"### 💕 Boxplot: {feature} การทำนายโรคหัวใจ")
 fig, ax = plt.subplots()
 sns.boxplot(data=dt, x='HeartDisease', y=feature, ax=ax)
 st.pyplot(fig)
 
 # วาด pairplot
 if st.checkbox("แสดง Pairplot (ใช้เวลาประมวลผลเล็กน้อย)"):
-    st.write("### 🌺 Pairplot: การกระจายของข้อมูลทั้งหมด")
+    st.write("### ❤️‍🔥 Pairplot: การกระจายของข้อมูลทั้งหมด")
     fig2 = sns.pairplot(dt, hue='HeartDisease')
     st.pyplot(fig2)
 
