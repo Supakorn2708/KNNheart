@@ -60,11 +60,17 @@ html_8 = """
 st.markdown(html_8, unsafe_allow_html=True)
 st.markdown("")
 
-pt_len = st.slider("กรุณาเลือกข้อมูล petal.length")
-pt_wd = st.slider("กรุณาเลือกข้อมูล petal.width")
-
-sp_len = st.number_input("กรุณาเลือกข้อมูล sepal.length")
-sp_wd = st.number_input("กรุณาเลือกข้อมูล sepal.width")
+Age = st.number_input("กรุณาเลือกข้อมูล Age")
+Sex = st.number_input("กรุณาเลือกข้อมูล Sex")
+ChestPainType = st.number_input("กรุณาเลือกข้อมูล ChestPainType")
+RestingBP = st.number_input("กรุณาเลือกข้อมูล RestingBP")
+Cholesterol = st.number_input("กรุณาเลือกข้อมูล Cholesterol")
+FastingBS = st.number_input("กรุณาเลือกข้อมูล FastingBS")
+RestingECG = st.number_input("กรุณาเลือกข้อมูล RestingECG")
+MaxHR = st.number_input("กรุณาเลือกข้อมูล MaxHR")
+ExerciseAngina = st.number_input("กรุณาเลือกข้อมูล ExerciseAngina")
+Oldpeak = st.number_input("กรุณาเลือกข้อมูล Oldpeak")
+ST_Slope = st.number_input("กรุณาเลือกข้อมูล ST_Slope")
 
 if st.button("ทำนายผล"):
     #st.write("ทำนาย")
@@ -75,7 +81,7 @@ if st.button("ทำนายผล"):
    Knn_model = KNeighborsClassifier(n_neighbors=3)
    Knn_model.fit(X, y)  
     
-   x_input = np.array([[pt_len, pt_wd, sp_len, sp_wd]])
+   x_input = np.array([[Age,Sex,ChestPainType,RestingBP,Cholesterol,FastingBS,RestingECG,MaxHR,ExerciseAngina,Oldpeak,ST_Slope]])
    st.write(Knn_model.predict(x_input))
    
    out=Knn_model.predict(x_input)
