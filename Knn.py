@@ -74,7 +74,7 @@ ST_Slope = st.number_input("กรุณาเลือกข้อมูล ST_
 
 if st.button("ทำนายผล"):
     #st.write("ทำนาย")
-   dt = pd.read_csv("./data/iris-3.csv") 
+   dt = pd.read_csv("./data/heart3.csv") 
    X = dt.drop('variety', axis=1)
    y = dt.variety   
 
