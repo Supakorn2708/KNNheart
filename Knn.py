@@ -10,11 +10,11 @@ st.image("./img/Men.jpg")
 col1, col2 = st.columns(2)
 
 with col1:
-   st.header("Versicolor")
+   st.header("หัวใจแข็งแรง")
    st.image("./img/heart1.jpg")
 
 with col2:
-   st.header("Verginiga")
+   st.header("เป็นโรคหัวใจ")
    st.image("./img/heart2.jpg")
 
 html_7 = """
