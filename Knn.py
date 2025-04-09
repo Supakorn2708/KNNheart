@@ -60,17 +60,18 @@ html_8 = """
 st.markdown(html_8, unsafe_allow_html=True)
 st.markdown("")
 
-Age = st.number_input("กรุณาเลือกข้อมูล Age")
-Sex = st.number_input("กรุณาเลือกข้อมูล Sex")
-ChestPainType = st.number_input("กรุณาเลือกข้อมูล ChestPainType")
-RestingBP = st.number_input("กรุณาเลือกข้อมูล RestingBP")
-Cholesterol = st.number_input("กรุณาเลือกข้อมูล Cholesterol")
-FastingBS = st.number_input("กรุณาเลือกข้อมูล FastingBS")
-RestingECG = st.number_input("กรุณาเลือกข้อมูล RestingECG")
-MaxHR = st.number_input("กรุณาเลือกข้อมูล MaxHR")
-ExerciseAngina = st.number_input("กรุณาเลือกข้อมูล ExerciseAngina")
-Oldpeak = st.number_input("กรุณาเลือกข้อมูล Oldpeak")
-ST_Slope = st.number_input("กรุณาเลือกข้อมูล ST_Slope")
+a1 = st.number_input("กรุณาเลือกข้อมูล a1")
+a2 = st.number_input("กรุณาเลือกข้อมูล a2")
+a3 = st.number_input("กรุณาเลือกข้อมูล a3")
+a4 = st.number_input("กรุณาเลือกข้อมูล a4")
+a5 = st.number_input("กรุณาเลือกข้อมูล a5")
+a6 = st.number_input("กรุณาเลือกข้อมูล a6")
+a7 = st.number_input("กรุณาเลือกข้อมูล a7")
+a8 = st.number_input("กรุณาเลือกข้อมูล a8")
+a9 = st.number_input("กรุณาเลือกข้อมูล a9")
+a10 = st.number_input("กรุณาเลือกข้อมูล a10")
+a11 = st.number_input("กรุณาเลือกข้อมูล a11")
+
 
 if st.button("ทำนายผล"):
     #st.write("ทำนาย")
@@ -81,7 +82,7 @@ if st.button("ทำนายผล"):
    Knn_model = KNeighborsClassifier(n_neighbors=3)
    Knn_model.fit(X, y)  
     
-   x_input = np.array([[Age,Sex,ChestPainType,RestingBP,Cholesterol,FastingBS,RestingECG,MaxHR,ExerciseAngina,Oldpeak,ST_Slope]])
+   x_input = np.array([[a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11]])
    st.write(Knn_model.predict(x_input))
    
    out=Knn_model.predict(x_input)
